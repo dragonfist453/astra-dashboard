@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Science feed</title>
+    <style>
+        #container {
+            height: 250px;
+            width: 48%;
+            display: inline-block;
+            padding-top: 3%;
+            padding-left: 1%;
+        }
+
+        a {
+            color: transparent !important;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+
+            var chart1 = new CanvasJS.Chart("N", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Nitrogen"
+                },
+                axisY: {
+                    title: "ppm",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Locations"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [{
+                        y: 3.6
+                    }, {
+                        y: 3.8
+                    }, {
+                        y: 5.3,
+                        indexLabel: "highest",
+                        markerColor: "red",
+                        markerType: "triangle"
+                    }, {
+                        y: 3.7
+                    }, {
+                        y: 3.8
+                    }, {
+                        y: 3.1,
+                        indexLabel: "lowest",
+                        markerColor: "DarkSlateGrey",
+                        markerType: "cross"
+                    }, {
+                        y: 4.8
+                    }]
+                }]
+            });
+
+            var chart2 = new CanvasJS.Chart("P", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Phosphorus"
+                },
+                axisY: {
+                    title: "ppm",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Locations"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [{
+                        y: 2.5
+                    }, {
+                        y: 3.5,
+                        indexLabel: "highest",
+                        markerColor: "red",
+                        markerType: "triangle"
+                    }, {
+                        y: 2.9
+                    }, {
+                        y: 2.4
+                    }, {
+                        y: 1.0
+                    }, {
+                        y: 0.9,
+                        indexLabel: "lowest",
+                        markerColor: "DarkSlateGrey",
+                        markerType: "cross"
+                    }, {
+                        y: 1.5
+                    }]
+                }]
+            });
+
+            var chart3 = new CanvasJS.Chart("K", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Potassium"
+                },
+                axisY: {
+                    title: "ppm",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Locations"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [{
+                        y: 18
+                    }, {
+                        y: 15
+                    }, {
+                        y: 22
+                    }, {
+                        y: 20
+                    }, {
+                        y: 26.3,
+                        indexLabel: "highest",
+                        markerColor: "red",
+                        markerType: "triangle"
+                    }, {
+                        y: 17,
+                        indexLabel: "lowest",
+                        markerColor: "DarkSlateGrey",
+                        markerType: "cross"
+                    }, {
+                        y: 18
+                    }]
+                }]
+            });
+
+            var chart4 = new CanvasJS.Chart("pH", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "pH"
+                },
+                axisY: {
+                    title: "pH",
+                    includeZero: false
+                },
+                axisX: {
+                    title: "Locations"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [{
+                        y: 8.0
+                    }, {
+                        y: 7.6
+                    }, {
+                        y: 8.1,
+                        indexLabel: "highest",
+                        markerColor: "red",
+                        markerType: "triangle"
+                    }, {
+                        y: 7.9
+                    }, {
+                        y: 8.0
+                    }, {
+                        y: 7.5,
+                        indexLabel: "lowest",
+                        markerColor: "DarkSlateGrey",
+                        markerType: "cross"
+                    }, {
+                        y: 8.0
+                    }]
+                }]
+            });
+
+            chart1.render();
+            chart2.render();
+            chart3.render();
+            chart4.render();
+
+        }
+    </script>
+</head>
+
+<body>
+    {% block content %}
+    <div id="N" style="height: 250px; width: 48%; display: inline-block; padding-top: 3%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div id="P" style="height: 250px; width: 48%; display: inline-block; padding-top: 3%;
+    padding-left: 1%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js "></script>
+    <div id="K" style="height: 250px; width: 48%; display: inline-block; padding-top: 3%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div id="pH" style="height: 250px; width: 48%; display: inline-block; padding-top: 3%;
+    padding-left: 1%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    {% endblock %}
+</body>
+
+</html>

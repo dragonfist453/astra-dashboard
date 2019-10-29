@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <title>Video feed</title>
+    <style>
+        #container {
+            position: relative;
+            height: 100%;
+            background-size: 100%;
+            opacity: 0.8;
+        }
+
+        .vid {
+            position: absolute;
+            left: 12%;
+            right: 3%;
+            top: 2%;
+        }
+        header {
+            text-size: 15px;
+            text-align: center
+            position: absolute;
+            left: 50%
+        }
+    </style>
+</head>
+    <h1>
+        Rover camera feed
+    </h1>
+    <body style="height: 100%; margin: 0;">
+        {% block content %}
+        <div id="container">
+            <div style="position: absolute; left: 1%; top: 2%;">
+                <img style="width: 30%;" src="{{ url_for('static', filename='images/astra-logo.png') }}" />
+            </div>
+            <!-- Please change video ASAP -->
+            <div class="vid">
+                <video style="width: 90%;" controls>
+                        <source src="{{ url_for('static', filename='videos/test.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+    {% endblock %}
+    </body>
+</html>

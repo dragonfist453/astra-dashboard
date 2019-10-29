@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>base station</title>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style>
+        .row {
+            margin-bottom: 0px;
+        }
+        
+        .card .card-content .card-title {
+            margin-bottom: 0px;
+        }
+        
+        .card .card-title {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="dashboard">
+            <h4> ASTRA: BASE STATION</h4>
+            <img src="{{ url_for('static', filename='images/astra1.jpg') }}" id="dash-img">
+
+        </div>
+
+    </header>
+    {% block content %} {% endblock %}
+</body>
+
+</html>

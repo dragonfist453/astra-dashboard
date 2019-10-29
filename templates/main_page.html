@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Base station</title>
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/template.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style>
+        .row {
+            margin-bottom: 0px;
+        }
+
+        .card .card-content .card-title {
+            margin-bottom: 0px;
+        }
+
+        .card .card-title {
+            font-size: 20px;
+            color: white
+        }
+        .btn1 {
+            border: 6px solid #FF8C00;
+            background-color: #FFD700;
+            padding: 100px 150px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            left: 12%;
+            top: 20%;
+            z-index: 10;
+        }
+        .btn2 {
+            border: 6px solid #ADD8E6;
+            background-color: #4682B4;
+            padding: 100px 150px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            right: 12%;
+            top: 20%;
+            z-index: 10;
+        }
+        .btn3 {
+            border: 6px solid #008000;
+            background-color: #00FF7F;
+            padding: 100px 150px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            left: 12%;
+            top: 60%;
+            z-index: 10;
+        }
+        .btn4 {
+            border: 6px solid #708090;
+            background-color: #C0C0C0;
+            padding: 100px 150px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            right: 12%;
+            top: 60%;
+            z-index: 10;
+        }
+
+
+    </style>
+</head>
+<script>
+    function sensor()
+    {
+            window.open("http://localhost:5000/sensor");
+    }
+    function science()
+    {
+            window.open("http://localhost:5000/science");
+    }
+    function video_feed()
+    {
+            window.open("http://localhost:5000/video");
+    }
+    function rover_info()
+    {
+            window.open("http://localhost:5000/rover");
+    }
+</script>
+    <body>
+        <header>
+                <div class="dashboard">
+                    <h4> ASTRA: BASE STATION</h4>
+                    <img src="{{ url_for('static', filename='images/astra1.jpg') }}" id="dash-img">
+
+                </div>
+        </header>
+
+        <button onclick="sensor()" class="btn1">Sensor data</button>
+        <button onclick="science()" class="btn2">Science data</button>
+        <button onclick="rover_info()" class="btn3">Rover info</button>
+        <button onclick="video_feed()" class="btn4">Video feed</button>
+
+    </body>
+</html>

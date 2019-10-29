@@ -1,0 +1,19 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0B0C10;
+}
+
+.dashboard {
+    background-color: #0B0C10;
+    padding: 8px;
+    margin: 1.5%;
+    color: #66FCF1;
+}
+
+#dash-img {
+    position: absolute;
+    width: 7%;
+    top: 28px;
+    right: 2%;
+    vertical-align: middle;
+}
