@@ -8,7 +8,7 @@
         #container {
             position: relative;
             height: 100%;
-            background-image: url("../static/images/mars.jpg");
+            background-image: url("../static/images/mars_bg.jpg");
             background-repeat: no-repeat;
             background-size: 100%;
             opacity: 0.8;
@@ -163,7 +163,7 @@
 
         #rover {
             position: absolute;
-            top: 30%;
+            top: 40%;
             left: 25%;
         }
 
@@ -211,6 +211,16 @@
         #wheel-4 {
             top: 71%;
             left: 58%;
+        }
+
+        #wheel-5{
+            top: 64%;
+            right: 30%;
+        }
+
+        #wheel-6{
+            top: 56%;
+            right: 45%;
         }
 
         #map-img {
@@ -272,11 +282,12 @@
         <div id="battery" style="left: 18%;">
             <p>TEMPERATURE <br><span style="font-size: 225%; font-weight: bolder;">32°C</span></p>
         </div>
+        <!--
         <div id="battery" style="left: 28%;">
             <p>WIND SPEED <br><span id="windSpeed" style="font-size: 225%; font-weight: bolder;">8.76</span>
                 <span style="font-size: 225%; font-weight: bolder;">kmph</span></p>
         </div>
-
+-->
 
         <div id="current" style="right: 2%;">
             <p>CURRENT <br><span id="resultantCurrent" style="font-size: 225%; font-weight: bolder;">7.4</span>
@@ -311,14 +322,24 @@
             &nbsp; CURRENT: <span id="wheel4-current" style="font-weight: bold">1.8</span> A&nbsp;
         </div>
 
+        <div class="rover-wheel" id="wheel-5">
+            &nbsp; CURRENT: <span id="wheel5-current" style="font-weight: bold">1.8</span> A&nbsp;
+        </div>
+
+        <div class="rover-wheel" id="wheel-6">
+            &nbsp; CURRENT: <span id="wheel6-current" style="font-weight: bold">1.9 </span> A&nbsp;
+        </div>
+
         <script>
             var w1current = 4.5;
             var w2current = 4.9;
             var w3current = 4.8;
             var w4current = 4.2;
+            var w5current = 4.6;
+            var w6current = 4.7;
             var current = 18.4;
             var voltage = 24.2;
-            var v1, v2, v3, v4, v5, v6, v7, v8;
+            var v1, v2, v3, v4, v5, v6, v7, v8,v9;
             var i = 0;
 
             function setWheel1Current() {
@@ -377,8 +398,36 @@
                 }
             }
 
+            function setWheel5Current() {
+                var min = 4.1;
+                var max = 5.6;
+                w5current = (Math.random() * (max - min) + min).toFixed(2);
+                document.getElementById("wheel5-current").innerHTML = w5current;
+                if (Number(w5current) > 5.5) {
+                    document.getElementById("wheel-5").style.backgroundColor = "#d81b1b96";
+                } else if (Number(w5current) >= 5.4 && Number(w5current) < 5.5) {
+                    document.getElementById("wheel-5").style.backgroundColor = "#c1b31e96";
+                } else {
+                    document.getElementById("wheel-5").style.backgroundColor = "#ffffff96";
+                }
+            }
+
+            function setWheel6Current() {
+                var min = 4.1;
+                var max = 5.6;
+                w6current = (Math.random() * (max - min) + min).toFixed(2);
+                document.getElementById("wheel6-current").innerHTML = w6current;
+                if (Number(w6current) > 5.5) {
+                    document.getElementById("wheel-6").style.backgroundColor = "#d81b1b96";
+                } else if (Number(w6current) >= 5.4 && Number(w6current) < 5.5) {
+                    document.getElementById("wheel-6").style.backgroundColor = "#c1b31e96";
+                } else {
+                    document.getElementById("wheel-6").style.backgroundColor = "#ffffff96";
+                }
+            }
+
             function setCurrent() {
-                current = Number(w1current) + Number(w2current) + Number(w3current) + Number(w4current);
+                current = Number(w1current) + Number(w2current) + Number(w3current) + Number(w4current) + Number(w5current) + Number(w6current);
                 document.getElementById("resultantCurrent").innerHTML = current.toFixed(2);
             }
 
@@ -417,6 +466,8 @@
                 document.getElementById("wheel2-current").innerHTML = "--";
                 document.getElementById("wheel3-current").innerHTML = "--";
                 document.getElementById("wheel4-current").innerHTML = "--";
+                document.getElementById("wheel5-current").innerHTML = "--";
+                document.getElementById("wheel6-current").innerHTML = "--";
                 document.getElementById("resultantCurrent").innerHTML = "--";
                 document.getElementById("resultantVoltage").innerHTML = "--";
                 document.getElementById("pointer").style.trasnform = "rotate(0deg)";
@@ -429,9 +480,10 @@
                 clearInterval(v3);
                 clearInterval(v4);
                 clearInterval(v5);
-                // clearInterval(v6);
+                clearInterval(v6);
                 clearInterval(v7);
                 clearInterval(v8);
+                clearInterval(v9);
                 // document.getElementById("demo").innerHTML = "Hello World";
             }
 
@@ -440,10 +492,12 @@
                 v2 = setInterval(setWheel2Current, 1500);
                 v3 = setInterval(setWheel3Current, 1500);
                 v4 = setInterval(setWheel4Current, 1500);
-                v5 = setInterval(setCurrent, 1500);
+                v5 = setInterval(setWheel5Current, 1500);
+                v6 = setInterval(setWheel6Current, 1500);
+                v7 = setInterval(setCurrent, 1500);
                 // v6 = setInterval(setVoltage, 1000);
-                v7 = setInterval(setWindSpeed, 2000);
-                v8 = setInterval(rotate_pointer, 1500);
+                v8 = setInterval(setWindSpeed, 2000);
+                v9 = setInterval(rotate_pointer, 1500);
             }
         </script>
 
